@@ -6,6 +6,6 @@
         public string StoreCode { get; set; }
         public string Password { get; set; }
         public string Address { get; set; }
-        public List<Order> Orders { get; set; }
+        public List<Order>? Orders { get; set; }
     }
 }
