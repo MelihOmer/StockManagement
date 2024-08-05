@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StockManagement.Web.Abstract.Repository;
 using StockManagement.Web.Context;
+using System.Linq.Expressions;
 
 namespace StockManagement.Web.Concrete.Repository
 {
@@ -29,7 +30,7 @@ namespace StockManagement.Web.Concrete.Repository
 
         public async Task<List<T>> GetAllAsync()
         {
-            var datas = await _table.ToListAsync();
+            var datas = await _table.AsNoTracking().ToListAsync();
             return datas;
         }
 
@@ -37,6 +38,12 @@ namespace StockManagement.Web.Concrete.Repository
         {
             var data = await _table.FindAsync(id);
             return data;
+        }
+
+        public async Task<List<T>> GetWhere(Expression<Func<T, bool>> filter)
+        {
+            var datas = await _table.Where(filter).AsNoTracking().ToListAsync();
+            return datas;
         }
 
         public async Task UpdateAsync(T entity)

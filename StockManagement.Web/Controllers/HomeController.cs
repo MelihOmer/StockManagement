@@ -1,32 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StockManagement.Web.Models;
-using System.Diagnostics;
+using StockManagement.Web.Abstract.Service;
 
 namespace StockManagement.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IStoreService _storeService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IStoreService storeService)
         {
-            _logger = logger;
+            _storeService = storeService;
         }
 
-        public IActionResult Index()
+
+        [HttpGet]
+        public  IActionResult Index()
         {
-            return View();
+            var datas =  _storeService.StoreAndOrdersInfo();
+            return View(datas);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
