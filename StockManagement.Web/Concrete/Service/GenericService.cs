@@ -9,5 +9,6 @@ namespace StockManagement.Web.Concrete.Service
         public GenericService(AppDbContext context) : base(context)
         {
         }
+        
     }
 }

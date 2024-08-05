@@ -7,5 +7,6 @@
         public string Unit { get; set; }
         public decimal UnitStock{ get; set; }
         public decimal Stock { get; set; }
+        public bool Active { get; set; }
     }
 }

@@ -4,6 +4,7 @@
     {
         public string OrderNote { get; set; }
         public string OrderStatus { get; set; }
+        public DateTime OrderDate{ get; set; }
         public int StoreId { get; set; }
         public Store Store { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
