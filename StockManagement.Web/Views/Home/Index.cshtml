@@ -10,19 +10,19 @@
         @foreach (var store in Model)
         {
 
-            <div class="card bg-light text-black shadow col-4 my-2">
+            <div class="card bg-light bg-gray-400 text-black shadow col-4 my-2">
                 <div class="card-body " style="height:200px;">
                     <a href="#" style="text-decoration:none; color:black; font-weight:bold"  >
-                        @store.Store.StoreName
+                        <i class="fa-solid fa-store "></i>  @store.Store.StoreName
                     </a>
                     <div class="text-black-50 small">@store.Store.StoreCode</div>
                     <div class="text-start">
                         <div class="text-start" style="text-align:start;">
-                            <a asp-controller="Order" asp-action="Index" asp-route-storeId="@store.Store.StoreId" style="text-decoration:none;"><p class="text-start">Siparişler :(@store.TotalOrders)</p></a>
+                            <a asp-controller="Order" asp-action="Index" asp-route-storeId="@store.Store.StoreId" style="text-decoration:none;"><p class="text-start"><i class="fa-solid fa-basket-shopping"></i>  Siparişler :(@store.TotalOrders)</p></a>
 
-                            <a asp-controller="Order" asp-action="Index" asp-route-storeId="@store.Store.StoreId" asp-route-orderStatus="0" style="text-decoration:none;"><p class="text-start">Bekleyen Siparişler :(@store.PendingOrders)</p></a>
+                            <a asp-controller="Order" asp-action="Index" asp-route-storeId="@store.Store.StoreId" asp-route-orderStatus="0" style="text-decoration:none;"><p class="text-start"><i class="fa-solid fa-hourglass-start"></i>  Bekleyen Siparişler :(@store.PendingOrders)</p></a>
 
-                            <a asp-controller="Order" asp-action="Index" asp-route-storeId="@store.Store.StoreId" asp-route-orderStatus="1" style="text-decoration:none;"><p class="text-start">Karşılanan Siparişler :(@store.CompletedOrders)</p></a>
+                            <a asp-controller="Order" asp-action="Index" asp-route-storeId="@store.Store.StoreId" asp-route-orderStatus="1" style="text-decoration:none;"><p class="text-start"><i class="fa-solid fa-check-double"></i>  Karşılanan Siparişler :(@store.CompletedOrders)</p></a>
                         </div>
                     </div>
                 </div>
